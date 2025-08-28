@@ -5,7 +5,6 @@ import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 
-
 export async function POST(request) {
     try {
 
@@ -18,8 +17,8 @@ export async function POST(request) {
 
         // calculate amount using items
         const amount = await items.reduce(async (acc, item) => {
-            const product = await Product.findById(item.productId);
-            return acc + product.offerPrice * item.quantity;
+            const product = await Product.findById(item.product);
+            return await acc + product.offerPrice * item.quantity;
         }, 0)
 
         await inngest.send({
