@@ -36,7 +36,7 @@ const MyOrders = () => {
     if (user) {
       fetchOrders();
     }
-  }, [user._id]);
+  }, [user]);
 
   return (
     <>
